@@ -1,1 +1,1 @@
-##THIS IS A DOCKER TEST PROJECT
+Dockerfile should be working, the image will be created successfully.
