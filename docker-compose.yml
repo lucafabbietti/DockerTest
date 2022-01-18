@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  web2:
+    build: .
+    ports: 
+      - "80:80"
+    volumes:
+      - "/var/www/html/:/var/lib/docker/volumes/htdocs_local/_data/"
+    command: apache2ctl start
