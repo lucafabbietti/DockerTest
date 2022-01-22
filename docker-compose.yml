@@ -1,9 +1,25 @@
 version: "3.9"
 services:
-  web2:
-    build: .
+  web0:
+    build: 
+      context: ./apache-php
     ports: 
       - "80:80"
     volumes:
-      - "/var/www/html/:/var/lib/docker/volumes/htdocs_local/_data/"
-    command: apache2ctl start
+      - "/var/www/html/:/apache-php/src/"
+    #command: apache2ctl start
+  web1:
+    build:
+      context: ./apache-php
+    ports:
+      - "81:80"
+    volumes:
+      - "/var/www/html/:/apache-php/src/"
+    #command: apache2ctl start
+  db0:
+    build:
+      context: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
